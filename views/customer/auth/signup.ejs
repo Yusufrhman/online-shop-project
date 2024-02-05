@@ -1,0 +1,39 @@
+<%- include('../../shared/includes/head', {pageTitle: 'sign-up'}) %>
+<link rel="stylesheet" href="/styles/forms.css">
+<link rel="stylesheet" href="/styles/auth.css">
+</head>
+<body>
+    <%- include('../../shared/includes/header') %>
+    <main>
+        
+        <form action="/signup" method="POST" id="auth-form">
+            <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+            <h1>Create New Account</h1>
+            <% if (signupData.message) { %>
+                <p id="error-input"><%= signupData.message %></p>
+                <% } %>
+            <div>
+                <ul>
+                    <li>
+                        <label for="username">Username</label>
+                        <input type="text" name="username" id="username" required></li>
+                    <li>
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" required></li>
+                    <li>
+                        <label for="confirm-email">Confirm-Email</label>
+                        <input type="email" name="confirm-email" id="confirm-email" required></li>
+                    <li>
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" minlength="6" required></li>
+                    <li>
+                        <button class="btn">Create Account!</button></li>
+                    <li>
+                        <a href="/login">already have an account? login instead</a></li>
+                </ul>
+                
+                
+                </div>
+        </form>
+    </main>
+<%- include('../../shared/includes/footer') %>

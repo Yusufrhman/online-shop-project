@@ -1,0 +1,26 @@
+h1 {
+    text-align: center;
+    color: var(--color-black);
+    margin: 0 auto 1.5rem auto;
+}
+
+#auth-form {
+    max-width: 25rem;
+    margin: 5rem auto;
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#auth-form div ul li{
+    margin: 0.5rem auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    text-align: left;
+}
+form div ul a {
+    text-align: center;
+    font-size: 0.75rem;
+}

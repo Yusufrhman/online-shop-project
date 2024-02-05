@@ -1,0 +1,27 @@
+<article class="product-item">
+  <img src="/<%= product.imageUrl %>" alt="<%= product.title %>" />
+  <div class="product-item-content">
+    <h2><%= product.title %></h2>
+    <p class="product-item-price"><%= product.price %></p>
+    <div class="product-item-actions">
+      <% if(locals.isAdmin) {%>
+      <a
+        style="font-size: 0.75rem"
+        class="btn"
+        href="/admin/products/<%= product.id %>"
+        >View & Edit</a
+      >
+      <button
+        class="reverse-btn"
+        style="font-size: 0.75rem"
+        data-productid="<%= product.id %>"
+        data-csrf="<%= locals.csrfToken %>"
+      >
+        Delete
+      </button>
+      <% } else { %>
+        <a href="/products/<%= product.id %>" class="btn">View Product</a>
+        <% } %>
+    </div>
+  </div>
+</article>

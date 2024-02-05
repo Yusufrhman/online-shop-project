@@ -1,0 +1,23 @@
+<%- include('../shared/includes/head', {pageTitle: 'manage-products'}) %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/styles/forms.css">
+<link rel="stylesheet" href="/styles/products.css">
+<script src="/products-management.js" defer></script>
+</head>
+<body>
+    <%- include('../shared/includes/header') %>
+    <main style="text-align: center;">
+        <h1>Product Administration</h1>
+        <h2>Manage Products</h2>
+        <form action="/admin/products" method="get" class="search-container">
+            <input type="text" id="search_query" name="search_query" placeholder="Search products..." value="<%= query %>">
+            <button type="search" class="btn"><i class="fa fa-search"></i></button>
+        </form>
+        <a href="/admin/products/new" class="btn">Add a New Product</a>
+        <ul id="products-grid">
+            <% for(product of products) { %>
+                <li><%- include('../shared/includes/product-item', {product: product}) %></li>
+                <% } %>
+        </ul>
+    </main>
+<%- include('../shared/includes/footer') %>

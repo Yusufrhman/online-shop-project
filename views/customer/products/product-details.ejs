@@ -1,0 +1,16 @@
+<%- include('../../shared/includes/head', {pageTitle: 'manage-products'}) %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="/products-management.js" defer></script>
+<script src="/cart-management.js" defer></script>
+</head>
+<body>
+    <%- include('../../shared/includes/header') %>
+    <main id="product-details" style="text-align: center;">
+        <img src="/<%= product.imageUrl %>" alt="<%= product.title %>" style="width: 15rem;">
+        <h1><%= product.title %></h1>
+        <p><%= product.summary %></p>
+        <p><%= product.price %></p>
+        <button class="btn" data-productid="<%= product.id %>" data-csrf="<%= locals.csrfToken %>">add to cart</button>
+        <p><%= product.description %></p>
+    </main>
+<%- include('../../shared/includes/footer') %>

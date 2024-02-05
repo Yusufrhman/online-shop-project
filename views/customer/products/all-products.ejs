@@ -1,0 +1,14 @@
+<%- include('../../shared/includes/head', {pageTitle: 'manage-products'}) %>
+<link rel="stylesheet" href="/styles/products.css">
+</head>
+<body>
+    <%- include('../../shared/includes/header') %>
+    <main style="text-align: center;">
+        <h1>All Products</h1>
+        <ul id="products-grid">
+            <% for(product of products) { %>
+                <li><%- include('../../shared/includes/product-item', {product: product}) %></li>
+                <% } %>
+        </ul>
+    </main>
+<%- include('../../shared/includes/footer') %>

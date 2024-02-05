@@ -1,0 +1,44 @@
+<header>
+  <div><a href="/">OS</a></div>
+  <nav>
+    <ul class="nav-list">
+      <!-- fitur search males styling, jd di komen dlu -->
+      <!-- <form action="/admin/products" method="get" class="search-container">
+        <input
+          type="text"
+          id="search_query"
+          name="search_query"
+          placeholder="Search products..."
+        />
+        <button type="search" class="btn"><i class="fa fa-search"></i></button>
+      </form> -->
+      <li><a href="/">Products</a></li>
+      <li><a href="/cart">Cart</a><span class="badge"><%= locals.cart.totalQuantity %></span></li>
+      <% if(locals.isLoggedIn){ %>
+      <li><a href="/orders">Orders</a></li>
+      <% } %> <% if(locals.isAdmin){ %>
+      <li><a href="/admin/products">Manage Products</a></li>
+      <li><a href="/admin/orders">Manage Orders</a></li>
+      <% } %> <% if(!locals.isLoggedIn){ %>
+      <li><a href="/login">Log in</a></li>
+      <li><a href="/signup">Sign up</a></li>
+      <% } %> <% if(locals.isLoggedIn) { %>
+      <li><a href="/account">Account</a></li>
+      <li>
+        <form action="/logout" method="post">
+          <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>" />
+          <button>Log out</button>
+        </form>
+      </li>
+      <% } %>
+      <li>
+        <div class="container" onclick="myFunction(this)">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>
+<%- include("side-bar") %>

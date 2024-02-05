@@ -1,0 +1,18 @@
+<article class="cart-item">
+  <div class="cart-item-info">
+    <img src="/products/assets/images/<%= cartItem.image %>" alt="" />
+    <span
+      ><h2><%= cartItem.title %></h2>
+      <p>Rp. <span><%= cartItem.price * cartItem.quantity %></span></p></span
+    >
+  </div>
+  <form
+    class="cart-item-management"
+    data-csrf="<%= locals.csrfToken %>"
+    data-productid="<%= cartItem._id %>"
+    data-price="<%= cartItem.price %>"
+  >
+    <input type="number" value="<%= cartItem.quantity %>" required />
+    <button class="update-cart-button">Update</button>
+  </form>
+</article>

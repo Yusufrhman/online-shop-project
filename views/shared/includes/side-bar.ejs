@@ -1,0 +1,25 @@
+<aside id="mobile-nav">
+    <nav>
+    <ul class="nav-list">
+      <li><a href="/">Products</a></li>
+      <li><a href="/cart">Cart <span class="badge mobile"></span></a></li>
+      <% if(locals.isLoggedIn){ %>
+      <li><a href="/orders">Orders</a></li>
+      <% } %> <% if(locals.isAdmin){ %>
+      <li><a href="/admin/products">Manage Products</a></li>
+      <li><a href="/admin/orders">Manage Orders</a></li>
+      <% } %> <% if(!locals.isLoggedIn){ %>
+      <li><a href="/login">Log in</a></li>
+      <li><a href="/signup">Sign up</a></li>
+      <% } %> <% if(locals.isLoggedIn) { %>
+      <li><a href="/account">Account</a></li>
+      <li>
+        <form action="/logout" method="post">
+          <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>" />
+          <button>Log out</button>
+        </form>
+      </li>
+      <% } %>
+    </ul>
+  </nav>
+</aside>

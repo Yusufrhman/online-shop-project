@@ -1,0 +1,22 @@
+<%- include('../../shared/includes/head', {pageTitle: 'your-cart'}) %>
+<link rel="stylesheet" href="/styles/cart.css">
+<script src="/cart-item-management.js" defer></script>
+</head>
+<body>
+    <%- include('../../shared/includes/header') %>
+    <main style="text-align: center;">
+        <h1>your-cart</h1>
+        <ul id="cart-item">
+            <% let totalPrice = 0 %>
+            <% for(cartItem of cart.items) { totalPrice+=cartItem.price*cartItem.quantity%>
+            <li>
+                <%- include("./includes/cart-item", {cartItem}) %>
+            </li>
+            <% } %>
+        </ul>
+        <div id="cart-total">
+            <div id="cart-total-price"><p>TOTAL: Rp.</p> <p id="total-price" data-totalPrice="<%= totalPrice %>"><%= totalPrice %></p></div>
+            <button class="btn">Buy Products</button>
+        </div>
+    </main>
+<%- include('../../shared/includes/footer') %>

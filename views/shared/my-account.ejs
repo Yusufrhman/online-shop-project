@@ -1,0 +1,43 @@
+<%- include('includes/head', {pageTitle: 'My Account'}) %>
+<link rel="stylesheet" href="/styles/profile.css">
+</head>
+<body>
+    <%- include('includes/header') %>
+    <main>
+        <h1>My Account</h1>
+        <table>
+            <% if(accountUpdateData.message) { %>
+                <p id="error-input"><%= accountUpdateData.message %></p>
+                <% } %>
+            <form action="/account" method="POST">
+            <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+            <tr><th>username</th><td><input type="text" value="<%= locals.user.username %>" name="username" id="username" required></td></tr>
+            <tr><th>Email</th><td><input type="email" value="<%= locals.user.email %>" name="email" id="email" required></td></tr>
+            <tr ><th class="address">Address</th><td class="address"><textarea name="address" id="address"><%= locals.user.address.address %></textarea></td></tr>
+                <tr>
+                <th></th>
+                <td>
+                    <ul id="address-form-grid">
+                        <li id="postal-code-container">
+                            <label for="postal-code">postal-code</label>
+                            <input type="number" id="postal-code" name="postal-code" value="<%= locals.user.address.postalCode %>" min="10000" max="99999">
+                        </li>
+                        <li>
+                        <label for="city">city</label>
+                         <select name="city" id="city">
+                            <option value="palembang">palembang</option>
+                        </select>
+                        </li>
+                        <li>
+                            <label for="province">province</label>
+                            <select name="province" id="province">
+                                <option value="sumatera selatan">sumatera selatan</option>
+                            </select>
+                        </li>
+                </ul>
+            </td></tr>
+            <tr><th></th><td><button class="btn">save changes</button></td></tr>
+            </form>
+        </table>
+    </main>
+<%- include('includes/footer') %>

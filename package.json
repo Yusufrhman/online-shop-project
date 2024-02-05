@@ -1,0 +1,29 @@
+{
+  "name": "online-shop-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "Muhammad Yusuf Rahman",
+  "license": "ISC",
+  "dependencies": {
+    "@dr.pogodin/csurf": "^1.13.0",
+    "bcryptjs": "^2.4.3",
+    "bson": "^5.5.1",
+    "connect-mongodb-session": "^3.1.1",
+    "csurf": "^1.11.0",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "mongodb": "^4.17.2",
+    "mongoose": "^6.12.6",
+    "multer": "^1.4.5-lts.1",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}
